@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqy4u68r2n44x"]
+
+[ext_resource type="Texture2D" uid="uid://m2l6q75o5g51" path="res://Assets/Sprites/westernass/Train.PNG" id="1_a6kih"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fv5tf"]
+size = Vector2(118, 19.5)
+
+[node name="Train" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a6kih")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 88.5, 136, 258)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(63, 210.75)
+shape = SubResource("RectangleShape2D_fv5tf")

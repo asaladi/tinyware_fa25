@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://du3gb6uc3n5xo"]
+
+[ext_resource type="Texture2D" uid="uid://bdv0gc3g23d1b" path="res://Assets/Sprites/westernass/Tumbleweed.PNG" id="1_f7ceo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sile4"]
+radius = 25.019993
+
+[node name="Area2D" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_f7ceo")
+region_enabled = true
+region_rect = Rect2(202.92523, 175.76292, 65.72403, 63.330093)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_sile4")

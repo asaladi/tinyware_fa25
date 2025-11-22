@@ -1,0 +1,86 @@
+[gd_scene load_steps=10 format=3 uid="uid://onysbbu47yd3"]
+
+[ext_resource type="Texture2D" uid="uid://bse6we8a00ayj" path="res://Assets/Sprites/charaboy/crouch.PNG" id="1_0ore3"]
+[ext_resource type="Texture2D" uid="uid://vl162rge3uib" path="res://Assets/Sprites/charaboy/idle.PNG" id="1_ghbrl"]
+[ext_resource type="Script" uid="uid://b68kbkwu7dvod" path="res://Assets/Scripts/chara.gd" id="1_nm08w"]
+[ext_resource type="Texture2D" uid="uid://uq212c2tuipv" path="res://Assets/Sprites/charaboy/jump.PNG" id="3_nm08w"]
+[ext_resource type="Texture2D" uid="uid://bn8oeejd7bap4" path="res://Assets/Sprites/charaboy/idle_hand.PNG" id="4_akf7p"]
+[ext_resource type="Texture2D" uid="uid://b5vhtssoijc8e" path="res://Assets/Sprites/charaboy/shoot_hand.PNG" id="5_1ur3e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2rujw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0ore3")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ghbrl")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_nm08w")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("1_0ore3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_ghbrl")
+}],
+"loop": false,
+"name": &"land",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2l2o"]
+size = Vector2(46, 86)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wrn30"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_akf7p")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_1ur3e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_akf7p")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[node name="chara" type="CharacterBody2D"]
+script = ExtResource("1_nm08w")
+
+[node name="body_anim" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2rujw")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-16, 9)
+shape = SubResource("RectangleShape2D_i2l2o")
+
+[node name="hand_anim" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wrn30")
+animation = &"idle"
