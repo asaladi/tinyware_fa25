@@ -84,3 +84,6 @@ shape = SubResource("RectangleShape2D_i2l2o")
 [node name="hand_anim" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wrn30")
 animation = &"idle"
+
+[node name="gun_pos" type="Marker2D" parent="."]
+position = Vector2(47, -15)

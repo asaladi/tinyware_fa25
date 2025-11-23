@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://c38g77srmt631"]
+
+[ext_resource type="Script" uid="uid://bnnw75m0ta6yo" path="res://Assets/Scripts/main.gd" id="1_guoxd"]
+[ext_resource type="PackedScene" uid="uid://cy7rb52ekoovx" path="res://Assets/Scenes/bg.tscn" id="1_l26l0"]
+[ext_resource type="PackedScene" uid="uid://cqy4u68r2n44x" path="res://Assets/Scenes/train.tscn" id="2_elf4b"]
+[ext_resource type="PackedScene" uid="uid://onysbbu47yd3" path="res://Assets/Scenes/chara.tscn" id="2_qplxx"]
+[ext_resource type="PackedScene" uid="uid://cjqfacwuycfev" path="res://Assets/Scenes/hud.tscn" id="5_rvsrt"]
+[ext_resource type="PackedScene" uid="uid://du3gb6uc3n5xo" path="res://Assets/Scenes/tumbleweed.tscn" id="6_nacht"]
+
+[node name="main" type="Node"]
+script = ExtResource("1_guoxd")
+
+[node name="Bg" parent="." instance=ExtResource("1_l26l0")]
+
+[node name="train" parent="." instance=ExtResource("2_elf4b")]
+position = Vector2(0, 90)
+
+[node name="chara" parent="." instance=ExtResource("2_qplxx")]
+z_index = 1
+position = Vector2(92, 237)
+
+[node name="HUD" parent="." instance=ExtResource("5_rvsrt")]
+
+[node name="Area2D" parent="." instance=ExtResource("6_nacht")]
+position = Vector2(576, 128)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(240, 180)
+zoom = Vector2(3, 3)

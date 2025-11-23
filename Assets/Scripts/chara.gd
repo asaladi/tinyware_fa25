@@ -7,9 +7,14 @@ const MAX_JUMP_TIME = 1.0
 var jump_pressed_time := 0.0
 var is_jumping := false
 
+var bullet_scene = preload("res://Assets/Scenes/bullet.tscn")
+var shoot_cooldown := 0.3
+var shoot_timer := 0.0
+
 func _physics_process(delta):
 	
 	velocity.y += GRAVITY * delta
+	
 	
 	if is_on_floor():
 		$body_anim.play("idle")
@@ -28,7 +33,19 @@ func _physics_process(delta):
 	else:
 		is_jumping = false
 		
-	if Input.is_action_pressed("shoot_key"):
+	if shoot_timer > 0:
+		shoot_timer -= delta
+	
+	
+	
+	if Input.is_action_just_pressed("shoot_key") and shoot_timer <= 0:
 		$hand_anim.play("shoot")
+		shoot()
+		shoot_timer = shoot_cooldown
 		
 	move_and_slide()
+	
+func shoot():
+	var bullet = bullet_scene.instantiate()
+	bullet.position = $gun_pos.global_position
+	get_parent().add_child(bullet)
